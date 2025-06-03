@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pet Match - Teste</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"  rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="main-header">
+    <div>
+      <a class="header-logo" href="#"><img src="./Imagens/logo.png" alt="Logo Pet Match"></a>
+    </div>
+    <div>
+      <h1>Pet Match</h1>
+      <p>Dê match no cãozinho que é a sua cara</p>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="./home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Entrar</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Sobre Nós</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Pimpolhos</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Seção do Teste -->
+  <section class="container my-5">
+    <h2 class="text-center mb-4 text-dark">Responda algumas perguntas para encontrar seu pet ideal!</h2>
+
+    <form id="form-teste">
+
+      <!-- Tamanho (baseado em altura) -->
+      <div class="card card-custom mb-4">
+        <div class="card-body">
+          <h5 class="card-title">1. Qual porte ideal para seu estilo de vida?</h5>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="size" id="size1" value="Small">
+            <label class="form-check-label" for="size1">Pequeno (até 40cm)</label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="size" id="size2" value="Medium">
+            <label class="form-check-label" for="size2">Médio (40cm a 60cm)</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="size" id="size3" value="Large">
+            <label class="form-check-label" for="size3">Grande (acima de 60cm)</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Temperamento -->
+      <div class="card card-custom mb-4">
+        <div class="card-body">
+          <h5 class="card-title">2. Qual tipo de temperamento você busca?</h5>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="temperament" id="temp1" value="friendly">
+            <label class="form-check-label" for="temp1">Amigável</label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="temperament" id="temp2" value="intelligent">
+            <label class="form-check-label" for="temp2">Inteligente</label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="temperament" id="temp3" value="energetic">
+            <label class="form-check-label" for="temp3">Energético</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="temperament" id="temp4" value="">
+            <label class="form-check-label" for="temp4">Qualquer temperamento</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expectativa de vida -->
+      <div class="card card-custom mb-4">
+        <div class="card-body">
+          <h5 class="card-title">3. Qual expectativa de vida do seu pet?</h5>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="life_span" id="lifespan1" value="under 10">
+            <label class="form-check-label" for="lifespan1">Até 10 anos</label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="life_span" id="lifespan2" value="10 - 12">
+            <label class="form-check-label" for="lifespan2">10 a 12 anos</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="life_span" id="lifespan3" value="14 - 16">
+            <label class="form-check-label" for="lifespan3">Mais de 14 anos</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Origem -->
+      <div class="card card-custom mb-4">
+        <div class="card-body">
+          <h5 class="card-title">4. Você prefere cachorros de qual região?</h5>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="origin" id="origin1" value="United States">
+            <label class="form-check-label" for="origin1">Estados Unidos</label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="origin" id="origin2" value="Europe">
+            <label class="form-check-label" for="origin2">Europa</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="origin" id="origin3" value="">
+            <label class="form-check-label" for="origin3">Qualquer origem</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Peso -->
+      <div class="card card-custom mb-4">
+        <div class="card-body">
+          <h5 class="card-title">5. Qual peso ideal do seu cachorro?</h5>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="weight" id="weight1" value="under 10">
+            <label class="form-check-label" for="weight1">Até 10 kg</label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="weight" id="weight2" value="10 - 25">
+            <label class="form-check-label" for="weight2">De 10 a 25 kg</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="weight" id="weight3" value="over 25">
+            <label class="form-check-label" for="weight3">Mais de 25 kg</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botão Finalizar -->
+      <div class="text-center mt-4">
+        <button type="button" class="btn btn-lg btn-success px-5" onclick="runTest()">Finalizar Teste</button>
+      </div>
+
+    </form>
+
+    <!-- Resultados aparecem aqui -->
+    <div id="results" class="mt-5"></div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Pet Match. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> 
+  <!-- Script do teste -->
+  <script src="teste.js"></script>
+</body>
+</html>

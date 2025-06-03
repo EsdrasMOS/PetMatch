@@ -1,0 +1,69 @@
+
+body {
+  font-family: Arial, sans-serif;
+}
+.card-pet {
+  transition: transform 0.3s ease;
+}
+.card-pet:hover {
+  transform: scale(1.05);
+}
+#main-header{
+    background-color: #9c6262;
+    padding: 20px 0;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 300px;
+}
+.header-logo img {
+    width: 120px;
+    height: 140px;
+    object-fit: contain;
+    align-items: left;
+    border-radius: 20px; 
+    transition: transform 0.3s ease;
+  }
+  
+.navbar-brand img:hover {
+    transform: scale(1.1); 
+}
+
+#main-header h1 { 
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+}
+  
+#main-header p {
+    font-size: 1.3rem;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.col-md-4 img {
+    width: 310px;
+    height: 300px;
+}
+
+.redirect-section {
+    background-color: #9c6262;
+  }
+  
+.redirect-section .card-redirect {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    background-color: #fffaf0;
+  }
+  
+.redirect-section .card-redirect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  }
+
+footer {
+  background-color: #4c5050;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 40px;
+}
