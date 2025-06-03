@@ -45,6 +45,11 @@ body {
     width: 310px;
     height: 300px;
 }
+.col-md-12 img {
+  width: 650px;
+  height: 400px;
+}
+
 
 .redirect-section {
     background-color: #9c6262;
