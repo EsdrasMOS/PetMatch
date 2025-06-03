@@ -181,7 +181,11 @@ function toggleFavorite(name, imageUrl, id) {
         favorites[currentUser.email] = favorites[currentUser.email].filter(fav => fav.id !== id);
         alert(`${name} removido dos favoritos.`);
     } else {
-        favorites[currentUser.email].push({ name, imageUrl, id });
+        favorites[currentUser.email].push({
+            name: breed.name,
+            imageUrl: breed.image?.url || '',
+            id: breed.id
+        });
         alert(`${name} adicionado aos favoritos!`);
     }
 
