@@ -50,6 +50,9 @@ body {
   height: 400px;
 }
 
+.carousel {
+  display: none;
+}
 
 .redirect-section {
     background-color: #9c6262;
