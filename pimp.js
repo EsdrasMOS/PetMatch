@@ -1,37 +1,57 @@
-// pimpolhos.js
-
 function getCurrentUser() {
-    return JSON.parse(localStorage.getItem('currentUser'));
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    console.log("👤 Usuário atual:", user);
+    return user;
 }
 
 function getAllUsers() {
-    return JSON.parse(localStorage.getItem('users')) || [];
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    console.log("👥 Todos os usuários:", users);
+    return users;
 }
 
 function getFavoriteBreeds(email) {
     const favorites = JSON.parse(localStorage.getItem('favorites') || '{}');
-    return favorites[email] || [];
+    console.log("❤️ Favoritos completos:", favorites);
+    console.log("🔍 Buscando favoritos para:", email);
+
+    if (!favorites[email]) {
+        console.warn(`⚠️ Sem favoritos para ${email}`);
+        return [];
+    }
+
+    return favorites[email];
 }
 
 function displayAllFavorites() {
     const container = document.getElementById('allFavoritesContainer');
+    if (!container) {
+        console.error("❌ Container 'allFavoritesContainer' não encontrado");
+        return;
+    }
 
-    if (!container) return;
+    container.innerHTML = ""; // Limpa antes de preencher
 
     const users = getAllUsers();
+    const currentUser = getCurrentUser();
 
     if (!users.length) {
         container.innerHTML = '<p class="text-muted">Nenhum usuário encontrado.</p>';
         return;
     }
 
+    let hasAnyFavorite = false;
+
     users.forEach(user => {
         const breeds = getFavoriteBreeds(user.email);
 
-        if (breeds.length === 0) return;
+        if (breeds.length === 0) return; // Pula usuários sem favoritos
+
+        hasAnyFavorite = true;
 
         const userDiv = document.createElement('div');
         userDiv.className = 'col-md-12 mb-4';
+
         userDiv.innerHTML = `
             <div class="card shadow-sm border-0">
                 <div class="card-header bg-secondary text-white">
@@ -51,13 +71,22 @@ function displayAllFavorites() {
         `;
         container.appendChild(userDiv);
     });
+
+    if (!hasAnyFavorite) {
+        container.innerHTML = '<p class="text-muted">Nenhum usuário favoritou raças ainda.</p>';
+    }
 }
 
 function displayMyFavorites() {
     const currentUser = getCurrentUser();
     const container = document.getElementById('myFavoritesContainer');
 
-    if (!container) return;
+    if (!container) {
+        console.error("❌ Container 'myFavoritesContainer' não encontrado");
+        return;
+    }
+
+    container.innerHTML = ""; // Limpa antes de preencher
 
     if (!currentUser) {
         container.innerHTML = `<p>Você precisa estar logado para ver seus favoritos.</p>`;
@@ -81,7 +110,7 @@ function displayMyFavorites() {
                 <div class="card-body">
                     <h5 class="card-title">${breed.name}</h5>
                     <p class="card-text">
-                        <small class="text-muted">Favoritado por você</small>
+                        <small class="text-muted">Raça favorita</small>
                     </p>
                 </div>
             </div>
@@ -91,6 +120,7 @@ function displayMyFavorites() {
 }
 
 function initPimpolhosPage() {
+    console.log("🔄 Carregando página de pimpolhos...");
     displayAllFavorites();
     displayMyFavorites();
 }
