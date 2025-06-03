@@ -18,7 +18,7 @@ function runTest() {
 
 async function getMatchingBreeds(userPrefs) {
     const url = 'https://api.thedogapi.com/v1/breeds'; 
-    const apiKey = 'live_vUfwzVP1e7h48DQR655Ws63eJHr7qEsJzyi0IixWUxDNIno9ElcZIcufM21JEFBf';
+    const apiKey = 'live_3JFxMfYR6dL0NihqBPYZtHRi6vPjCFsbXXZ722q2UZ0SLeI93xjbnR0HvqrTvtWo';
 
     try {
         const response = await fetch(url, {
@@ -104,7 +104,7 @@ function displayResults(results) {
             ? `<img src="${breed.image.url}" class="card-img-top" alt="${breed.name}">` 
             : '<p class="text-center mt-3">Sem imagem disponível</p>';
 
-            div.innerHTML = `
+        div.innerHTML = `
             ${imageUrl}
             <div class="card-body">
                 <h5 class="card-title">${breed.name}</h5>
@@ -116,11 +116,12 @@ function displayResults(results) {
                     <strong>Esperança de vida:</strong> ${breed.life_span || 'Não informado'}<br>
                     <strong>Compatibilidade:</strong> ${breed.matchCount}/5 critérios batem
                 </p>
-                <button class="btn btn-outline-success btn-favorite" onclick="toggleFavorite('${breed.name}', '${breed.image.url}', '${breed.id}')">
-                    ❤️ Favoritar
+                <button class="btn btn-outline-success btn-favorite" onclick="toggleFavorite('${breed.name}', '${breed.image?.url}', '${breed.id}')">
+                    ❤️ Pimpolho
                 </button>
             </div>
         `;
+        resultsContainer.appendChild(div);
     });
 }
 
@@ -164,8 +165,8 @@ function toggleFavorite(name, imageUrl, id) {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
     if (!currentUser) {
-        alert("Você precisa estar logado para favoritar uma raça.");
-        window.location.href = 'index.html';
+        alert("Você precisa estar logado para guardar uma raça como Pimpolho.");
+        window.location.href = 'index.html'; // Redireciona para login
         return;
     }
 
@@ -178,19 +179,18 @@ function toggleFavorite(name, imageUrl, id) {
     const existing = favorites[currentUser.email].find(fav => fav.id === id);
 
     if (existing) {
+        // Remove se já está favoritado
         favorites[currentUser.email] = favorites[currentUser.email].filter(fav => fav.id !== id);
         alert(`${name} removido dos favoritos.`);
     } else {
-        favorites[currentUser.email].push({
-            name: breed.name,
-            imageUrl: breed.image?.url || '',
-            id: breed.id
-        });
+        // Adiciona como favorito
+        favorites[currentUser.email].push({ name, imageUrl, id });
         alert(`${name} adicionado aos favoritos!`);
     }
 
     localStorage.setItem('favorites', JSON.stringify(favorites));
 }
+
 function displayFavorites() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const container = document.getElementById('favoritesContainer');
