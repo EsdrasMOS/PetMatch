@@ -17,7 +17,7 @@ async function fetchBreedImageFromAPI(breedName) {
     try {
         const response = await fetch(`https://api.thedogapi.com/v1/breeds/search?q=${encodeURIComponent(breedName)}`, {
             headers: {
-                'x-api-key': 'live_3JFxMfYR6dL0NihqBPYZtHRi6vPjCFsbXXZ722q2UZ0SLeI93xjbnR0HvqrTvtWo'
+                'x-api-key': 'live_vUfwzVP1e7h48DQR655Ws63eJHr7qEsJzyi0IixWUxDNIno9ElcZIcufM21JEFBf'
             }
         });
 

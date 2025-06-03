@@ -18,7 +18,7 @@ function runTest() {
 
 async function getMatchingBreeds(userPrefs) {
     const url = 'https://api.thedogapi.com/v1/breeds'; 
-    const apiKey = 'live_3JFxMfYR6dL0NihqBPYZtHRi6vPjCFsbXXZ722q2UZ0SLeI93xjbnR0HvqrTvtWo';
+    const apiKey = 'live_vUfwzVP1e7h48DQR655Ws63eJHr7qEsJzyi0IixWUxDNIno9ElcZIcufM21JEFBf';
 
     try {
         const response = await fetch(url, {
