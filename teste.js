@@ -220,3 +220,29 @@ function displayFavorites() {
         container.appendChild(div);
     });
 }
+
+
+// --- AQUI VEM A NOVA FUNÇÃO ---
+function showFallbackBreeds() {
+    const resultsContainer = document.getElementById('results');
+    if (!resultsContainer) return;
+
+    const fallbackBreeds = [
+        { name: "Golden Retriever", image: "https://..."  },
+        { name: "Labrador", image: "https://..."  },
+        // Mais raças...
+    ];
+
+    fallbackBreeds.forEach(breed => {
+        const div = document.createElement('div');
+        div.className = 'card mb-4';
+        div.innerHTML = `
+            <img src="${breed.image}" class="card-img-top" alt="${breed.name}">
+            <div class="card-body">
+                <h5 class="card-title">${breed.name}</h5>
+                <p class="card-text">Raça popular — boa opção!</p>
+            </div>
+        `;
+        resultsContainer.appendChild(div);
+    });
+}
