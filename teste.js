@@ -184,7 +184,7 @@ function toggleFavorite(name, imageUrl, id) {
         alert(`${name} removido dos favoritos.`);
     } else {
         // Adiciona como favorito
-        favorites[currentUser.email].push({ name, imageUrl, id });
+        favorites[currentUser.email].push({ name: breed.name, id: breed.id, image: { url: breed.image.url } });
         alert(`${name} adicionado aos favoritos!`);
     }
 
