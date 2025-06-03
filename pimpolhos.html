@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Pimpolhos - Pet Match</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"  rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="main-header">
+    <div class="d-flex align-items-center justify-content-center gap-3">
+      <a class="header-logo" href="home.html"><img src="./Imagens/logo.png" alt="Logo Pet Match"></a>
+      <div>
+        <h1>Pet Match</h1>
+        <p>Dê match no cãozinho que é a sua cara</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Pimpolhos</a></li>
+          <li class="nav-item"><a class="nav-link" href="teste.html">Teste Agora</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Conteúdo da Página -->
+  <section class="container my-5">
+    <h2 class="text-center mb-4">🐾 Raças Favoritas dos Usuários</h2>
+
+    <!-- Lista de todos os usuários -->
+    <div class="mb-5">
+      <h4>Todos os pimpolhos:</h4>
+      <div id="allFavoritesContainer" class="row g-4"></div>
+    </div>
+
+    <!-- Seção: Meus Favoritos -->
+    <div>
+      <h4>Seus Favoritos</h4>
+      <div id="myFavoritesContainer" class="row g-4"></div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="mt-auto">
+    <p>&copy; 2025 Pet Match. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> 
+  <!-- Script da página -->
+  <script src="pimpolhos.js"></script>
+</body>
+</html>
