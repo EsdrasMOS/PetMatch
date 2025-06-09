@@ -9,7 +9,6 @@
 </head>
 <body>
 
-  <!-- Header -->
   <header id="main-header">
     <div>
       <a class="header-logo" href="#"><img src="./Imagens/logo.png" alt="Logo Pet Match"></a>
@@ -20,7 +19,6 @@
     </div>
   </header>
 
-  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -31,19 +29,18 @@
           <li class="nav-item"><a class="nav-link" href="./home.html">Home</a></li>
           <li class="nav-item"><a class="nav-link active" href="./index.html">Entrar</a></li>
           <li class="nav-item"><a class="nav-link" href="./pimpolhos.html">Pimpolhos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Sobre Nós</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contato.html">Contatos</a></li>
+          <li class="nav-item"><a class="nav-link" href="./sobre.html">Sobre Nós</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Seção do Teste -->
   <section class="container my-5">
     <h2 class="text-center mb-4 text-dark">Responda algumas perguntas para encontrar seu pet ideal!</h2>
 
     <form id="form-teste">
 
-      <!-- Tamanho (baseado em altura) -->
       <div class="card card-custom mb-4">
         <div class="card-body">
           <h5 class="card-title">1. Qual porte ideal para seu estilo de vida?</h5>
@@ -62,7 +59,6 @@
         </div>
       </div>
 
-      <!-- Temperamento -->
       <div class="card card-custom mb-4">
         <div class="card-body">
           <h5 class="card-title">2. Qual tipo de temperamento você busca?</h5>
@@ -85,7 +81,6 @@
         </div>
       </div>
 
-      <!-- Expectativa de vida -->
       <div class="card card-custom mb-4">
         <div class="card-body">
           <h5 class="card-title">3. Qual expectativa de vida do seu pet?</h5>
@@ -104,7 +99,6 @@
         </div>
       </div>
 
-      <!-- Origem -->
       <div class="card card-custom mb-4">
         <div class="card-body">
           <h5 class="card-title">4. Você prefere cachorros de qual região?</h5>
@@ -123,7 +117,6 @@
         </div>
       </div>
 
-      <!-- Peso -->
       <div class="card card-custom mb-4">
         <div class="card-body">
           <h5 class="card-title">5. Qual peso ideal do seu cachorro?</h5>
@@ -142,19 +135,16 @@
         </div>
       </div>
 
-      <!-- Botão Finalizar -->
       <div class="text-center mt-4">
         <button type="button" class="btn btn-lg btn-success px-5" onclick="runTest()">Finalizar Teste</button>
       </div>
 
     </form>
 
-    <!-- Resultados aparecem aqui -->
     <div id="results" class="mt-5"></div>
 
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Pet Match. Todos os direitos reservados.</p>
   </footer>
@@ -162,13 +152,11 @@
   <script>
     window.onload = () => {
         displayResults([]);
-        displayFavorites(); // Função do teste.js
+        displayFavorites(); 
     };
 </script>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> 
-  <!-- Script do teste -->
   <script src="teste.js"></script>
 </body>
 </html>
