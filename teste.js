@@ -1,4 +1,3 @@
-// teste.js
 
 function getUserPreferences() {
     return {
@@ -12,13 +11,13 @@ function getUserPreferences() {
 
 function runTest() {
     const userPrefs = getUserPreferences();
-    console.log("📋 Suas preferências:", userPrefs);
+    console.log(" Suas preferências:", userPrefs);
     getMatchingBreeds(userPrefs);
 }
 
 async function getMatchingBreeds(userPrefs) {
     const url = 'https://api.thedogapi.com/v1/breeds'; 
-    const apiKey = 'live_3JFxMfYR6dL0NihqBPYZtHRi6vPjCFsbXXZ722q2UZ0SLeI93xjbnR0HvqrTvtWo';
+    const apiKey = 'live_ddZ3SMxuOJEOpefHVIIGBJhBWik7lhRPg3wDKp5YbwyTphfLQkZ0tIzIL4qGLYrQ';
 
     try {
         const response = await fetch(url, {

@@ -17,7 +17,7 @@ async function fetchBreedImageFromAPI(breedName) {
     try {
         const response = await fetch(`https://api.thedogapi.com/v1/breeds/search?q=${encodeURIComponent(breedName)}`, {
             headers: {
-                'x-api-key': 'live_vUfwzVP1e7h48DQR655Ws63eJHr7qEsJzyi0IixWUxDNIno9ElcZIcufM21JEFBf'
+                'x-api-key': 'live_ddZ3SMxuOJEOpefHVIIGBJhBWik7lhRPg3wDKp5YbwyTphfLQkZ0tIzIL4qGLYrQ'
             }
         });
 
@@ -36,10 +36,7 @@ async function fetchBreedImageFromAPI(breedName) {
 async function displayAllFavorites() {
     const container = document.getElementById('allFavoritesContainer');
 
-    if (!container) {
-        console.error("❌ Container 'allFavoritesContainer' não encontrado");
-        return;
-    }
+    if (!container) return;
 
     const users = getAllUsers();
 
@@ -65,23 +62,26 @@ async function displayAllFavorites() {
         for (const breed of breeds) {
             let imageUrl = breed.imageUrl;
 
-            // Se não tiver imagem salva, busca da API pelo nome
             if (!imageUrl) {
                 imageUrl = await fetchBreedImageFromAPI(breed.name);
             }
 
             breedCards.push(`
-                <div class="card" style="width: 180px;">
-                    <img src="${imageUrl}" class="card-img-top" alt="${breed.name}">
-                    <div class="card-body p-2">
-                        <p class="card-text m-0 text-center">${breed.name}</p>
+                <div class="col-md-3 col-sm-6 mb-3 d-flex justify-content-center">
+                    <div class="card shadow-sm h-100" style="width: 100%; max-width: 250px;">
+                        <img src="${imageUrl}" 
+                             alt="${breed.name}" 
+                             style="height: 200px; width: 100%; object-fit: cover; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+                        <div class="card-body text-center p-2">
+                            <p class="mb-0">${breed.name}</p>
+                        </div>
                     </div>
                 </div>
             `);
         }
 
         userDiv.innerHTML = `
-            <div class="card shadow-sm border-0">
+            <div class="card shadow-sm border-0 mb-4">
                 <div class="card-header bg-secondary text-white">
                     <strong>${user.name}</strong> (${user.email})
                 </div>
@@ -90,12 +90,11 @@ async function displayAllFavorites() {
                 </div>
             </div>
         `;
-
         container.appendChild(userDiv);
     }
 
     if (!hasAnyFavorite) {
-        container.innerHTML = '<p class="text-muted">Nenhum usuário favoritou raças ainda.</p>';
+        container.innerHTML = '<p class="text-muted text-center">Nenhum usuário favoritou raças ainda.</p>';
     }
 }
 
@@ -103,20 +102,17 @@ function displayMyFavorites() {
     const currentUser = getCurrentUser();
     const myContainer = document.getElementById('myFavoritesContainer');
 
-    if (!myContainer) {
-        console.error("❌ Container 'myFavoritesContainer' não encontrado");
-        return;
-    }
+    if (!myContainer) return;
 
     if (!currentUser) {
-        myContainer.innerHTML = `<p>Você precisa estar logado para ver seus favoritos.</p>`;
+        myContainer.innerHTML = `<p class="text-center text-muted">Você precisa estar logado para ver seus favoritos.</p>`;
         return;
     }
 
     const breeds = getFavoriteBreeds(currentUser.email);
 
     if (!breeds.length) {
-        myContainer.innerHTML = `<p>Você ainda não favoritou nenhuma raça.</p>`;
+        myContainer.innerHTML = `<p class="text-center text-muted">Você ainda não favoritou nenhuma raça.</p>`;
         return;
     }
 
@@ -124,20 +120,20 @@ function displayMyFavorites() {
         let imageUrl = breed.imageUrl;
 
         if (!imageUrl) {
-            imageUrl = await fetchBreedImageFromAPI(breed.name); // Busca se não tiver imagem salva
+            imageUrl = await fetchBreedImageFromAPI(breed.name);
         }
 
         const div = document.createElement('div');
-        div.className = 'col-md-3';
+        div.className = 'col-md-3 col-sm-6 mb-3 d-flex justify-content-center';
 
         div.innerHTML = `
-            <div class="card shadow-sm h-100">
-                <img src="${imageUrl}" class="card-img-top" alt="${breed.name}">
-                <div class="card-body">
-                    <h5 class="card-title">${breed.name}</h5>
-                    <p class="card-text">
-                        <small class="text-muted">Favoritado por você</small>
-                    </p>
+            <div class="card shadow-sm h-100" style="width: 100%; max-width: 250px;">
+                <img src="${imageUrl}" 
+                     alt="${breed.name}" 
+                     style="height: 200px; width: 100%; object-fit: cover; border-top-left-radius: 8px; border-top-right-radius: 8px;">
+                <div class="card-body text-center p-2">
+                    <h5 class="card-title m-0">${breed.name}</h5>
+                    <small class="text-muted">Favoritado por você</small>
                 </div>
             </div>
         `;

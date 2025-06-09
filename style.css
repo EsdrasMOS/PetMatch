@@ -8,6 +8,38 @@ body {
 .card-pet:hover {
   transform: scale(1.05);
 }
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Garantia de altura igual entre todos os cards */
+.card.h-100 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Alinhar conteúdo centralizado */
+.text-center {
+  text-align: center;
+}
+
+/* Estilização dos cards */
+.card-body {
+  background-color: #fff;
+  color: #333;
+  padding: 10px 15px;
+}
+
+.card-body h5,
+.card-body p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
 #main-header{
     background-color: #9c6262;
     padding: 20px 0;
