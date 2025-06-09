@@ -1,4 +1,3 @@
-
 function getUserPreferences() {
     return {
         size: document.querySelector('input[name="size"]:checked')?.value || '',
@@ -69,12 +68,12 @@ async function getMatchingBreeds(userPrefs) {
         })
         .filter(breed => breed.matchCount > 0)
         .sort((a, b) => b.matchCount - a.matchCount)
-        .slice(0, 10); // Mostra até 10 raças
+        .slice(0, 10);
 
         displayResults(matches);
 
     } catch (error) {
-        console.error("🚨 Erro ao buscar raças:", error);
+        console.error("Erro ao buscar raças:", error);
         alert("Ocorreu um erro ao carregar as raças.");
         showFallbackBreeds();
     }
@@ -165,7 +164,7 @@ function toggleFavorite(name, imageUrl, id) {
 
     if (!currentUser) {
         alert("Você precisa estar logado para guardar uma raça como Pimpolho.");
-        window.location.href = 'index.html'; // Redireciona para login
+        window.location.href = 'index.html';
         return;
     }
 
@@ -178,15 +177,12 @@ function toggleFavorite(name, imageUrl, id) {
     const existing = favorites[currentUser.email].find(fav => fav.id === id);
 
     if (existing) {
-        // Remove se já está favoritado
         favorites[currentUser.email] = favorites[currentUser.email].filter(fav => fav.id !== id);
         alert(`${name} removido dos favoritos.`);
     } else {
-        // Adiciona como favorito
         favorites[currentUser.email].push({ name, imageUrl, id });
         alert(`${name} adicionado aos favoritos!`);
     }
-
     localStorage.setItem('favorites', JSON.stringify(favorites));
 }
 
@@ -228,7 +224,6 @@ function showFallbackBreeds() {
     const fallbackBreeds = [
         { name: "Golden Retriever", image: "https://tse3.mm.bing.net/th/id/OIP.DNWynMAdhjRDfVw8im19GQHaFj?rs=1&pid=ImgDetMain"  },
         { name: "Labrador", image: "https://th.bing.com/th/id/R.59d9e68a71759583782b3ff3b57835df?rik=UBjtK7fxB6kMZg&riu=http%3a%2f%2fwww.dogwallpapers.net%2fwallpapers%2flabrador-retriever-wallpaper.jpg&ehk=TuTeTf%2bGQrM9pRzObqZAzVXyF%2fDz3HnQAkF8Qqh3BSY%3d&risl=&pid=ImgRaw&r=0"  },
-        // Mais raças...
     ];
 
     fallbackBreeds.forEach(breed => {

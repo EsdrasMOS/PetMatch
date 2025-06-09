@@ -1,5 +1,3 @@
-// pimpolhos.js
-
 function getCurrentUser() {
     return JSON.parse(localStorage.getItem('currentUser'));
 }
@@ -28,7 +26,7 @@ async function fetchBreedImageFromAPI(breedName) {
         // Retorna primeira imagem encontrada
         return data[0]?.image?.url || "https://placehold.co/600x400?text=Sem+Imagem";
     } catch (error) {
-        console.error("🚨 Erro ao buscar imagem:", error);
+        console.error("Erro ao buscar imagem:", error);
         return "https://placehold.co/600x400?text=Foto+Não+Encontrada";
     }
 }
@@ -145,7 +143,6 @@ function displayMyFavorites() {
     });
 }
 
-// Função para desfavoritar uma raça
 function unfavoriteBreed(breedName) {
     const currentUser = getCurrentUser();
 
@@ -158,13 +155,10 @@ function unfavoriteBreed(breedName) {
     let favorites = JSON.parse(localStorage.getItem('favorites') || '{}');
     const userFavorites = favorites[currentUser.email] || [];
 
-    // Filtra e remove a raça
     favorites[currentUser.email] = userFavorites.filter(fav => fav.name !== breedName);
 
-    // Salva de volta no localStorage
     localStorage.setItem('favorites', JSON.stringify(favorites));
 
-    // Recarrega os dados
     const myContainer = document.getElementById('myFavoritesContainer');
     myContainer.innerHTML = '';
     displayMyFavorites();

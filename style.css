@@ -15,19 +15,16 @@ body {
   width: 100%;
 }
 
-/* Garantia de altura igual entre todos os cards */
 .card.h-100 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-/* Alinhar conteúdo centralizado */
 .text-center {
   text-align: center;
 }
 
-/* Estilização dos cards */
 .card-body {
   background-color: #fff;
   color: #333;

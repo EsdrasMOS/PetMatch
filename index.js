@@ -286,8 +286,6 @@ cadCpfInput.addEventListener('input', function (e) {
     e.target.value = value;
 });
 
-// index.js
-
 document.getElementById('loginForm').addEventListener('submit', function (e) {
     e.preventDefault();
     const email = document.getElementById('loginEmail').value;
