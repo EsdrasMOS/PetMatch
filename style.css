@@ -79,8 +79,26 @@ body {
   height: 400px;
 }
 
-.carousel {
-  display: none;
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  height: 400px;
+}
+
+.carousel-fade .carousel-item.active {
+  opacity: 1;
+}
+
+.carousel-fade .carousel-inner {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ajuste da imagem */
+.carousel-item img {
+  height: 400px;
+  object-fit: cover;
+  width: 100%;
 }
 
 .redirect-section {
