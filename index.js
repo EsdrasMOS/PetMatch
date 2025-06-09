@@ -335,3 +335,6 @@ document.getElementById('registerForm').addEventListener('submit', function (e) 
     document.getElementById('error-message').textContent = "";
     document.getElementById('registerForm').reset();
 });
+
+//Sair da conta no perfil
+localStorage.removeItem('currentUser');

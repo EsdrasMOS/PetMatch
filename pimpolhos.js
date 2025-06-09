@@ -133,16 +133,45 @@ function displayMyFavorites() {
                      style="height: 200px; width: 100%; object-fit: cover; border-top-left-radius: 8px; border-top-right-radius: 8px;">
                 <div class="card-body text-center p-2">
                     <h5 class="card-title m-0">${breed.name}</h5>
-                    <small class="text-muted">Favoritado por você</small>
-                </div>
+                    <small class="text-muted d-block mt-2">
+                    <a href="#" onclick="event.preventDefault(); unfavoriteBreed('${breed.name}')" class="text-decoration-none text-danger">
+                        ❌ Deixar o pimpolho
+                    </a>
+                </small>
+            </div>
             </div>
         `;
         myContainer.appendChild(div);
     });
 }
 
+// Função para desfavoritar uma raça
+function unfavoriteBreed(breedName) {
+    const currentUser = getCurrentUser();
+
+    if (!currentUser) {
+        alert("Você precisa estar logado para remover um favorito.");
+        window.location.href = 'index.html';
+        return;
+    }
+
+    let favorites = JSON.parse(localStorage.getItem('favorites') || '{}');
+    const userFavorites = favorites[currentUser.email] || [];
+
+    // Filtra e remove a raça
+    favorites[currentUser.email] = userFavorites.filter(fav => fav.name !== breedName);
+
+    // Salva de volta no localStorage
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+
+    // Recarrega os dados
+    const myContainer = document.getElementById('myFavoritesContainer');
+    myContainer.innerHTML = '';
+    displayMyFavorites();
+}
+
 function initPimpolhosPage() {
-    console.log("🔄 Carregando página de Pimpolhos...");
+    console.log(" Carregando página de Pimpolhos...");
     displayAllFavorites();
     displayMyFavorites();
 }
